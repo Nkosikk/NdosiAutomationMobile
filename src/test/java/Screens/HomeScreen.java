@@ -13,7 +13,6 @@ public class HomeScreen {
     private AndroidDriver driver;
 
     @FindBy(xpath = "//android.widget.TextView[@text=\"Learn Automation the Right Way\"]")
-
     WebElement headingLearnAutomation;
 
     public HomeScreen(AndroidDriver driver) {

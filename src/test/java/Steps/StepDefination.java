@@ -15,8 +15,7 @@ public class StepDefination {
     public void i_an_andrid_device_open_with_chrome_browser() throws MalformedURLException {
 //        String packageId = "com.android.chrome";
         AppiumDriverFactory.getInstanceOfAppiumDriverFactory(); // true for iOS
-        this.homeScreen = new HomeScreen(AppiumDriverFactory.getDriver());
-    }
+        this.homeScreen = new HomeScreen(AppiumDriverFactory.getDriver());    }
     @When("I open the Ndosi website")
     public void i_open_the_ndosi_website() {
 
