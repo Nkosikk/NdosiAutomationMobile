@@ -13,12 +13,13 @@ public class AppiumDriverFactory {
 
     public static AppiumDriverFactory instanceOfAppiumDriverFactory;
 
-    public AppiumDriverFactory(String path) {
+    public AppiumDriverFactory() {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("app", path);
+        capabilities.setCapability("appPackage", "com.android.chrome");
+//        capabilities.setCapability("app", path);
         capabilities.setCapability("noReset", true);
 
         try {
@@ -30,11 +31,10 @@ public class AppiumDriverFactory {
 
     }
 
-    public static AppiumDriverFactory getInstanceOfAppiumDriverFactory(String path) throws MalformedURLException {
+    public static void getInstanceOfAppiumDriverFactory() throws MalformedURLException {
         if (instanceOfAppiumDriverFactory == null) {
-            instanceOfAppiumDriverFactory = new AppiumDriverFactory(path);
+            instanceOfAppiumDriverFactory = new AppiumDriverFactory();
         }
-        return instanceOfAppiumDriverFactory;
     }
 
     public static AndroidDriver getDriver() {
