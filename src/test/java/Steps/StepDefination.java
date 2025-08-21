@@ -1,6 +1,8 @@
 package Steps;
 
 import Screens.HomeScreen;
+import Screens.LandingScreen;
+import Screens.LearningMaterialsScreen;
 import Utils.AppiumDriverFactory;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.*;
@@ -8,51 +10,59 @@ import io.cucumber.java.en.*;
 import java.net.MalformedURLException;
 
 public class StepDefination {
-
     HomeScreen homeScreen;
+    LearningMaterialsScreen learningMaterialsScreen;
 
-    @Given("I an andrid device open with chrome browser")
-    public void i_an_andrid_device_open_with_chrome_browser() throws MalformedURLException {
-//        String packageId = "com.android.chrome";
-        AppiumDriverFactory.getInstanceOfAppiumDriverFactory(); // true for iOS
+    LandingScreen landingScreen;
+
+    @Given("The android device open with chrome browser")
+    public void The_android_device_open_with_chrome_browser() throws MalformedURLException {
+        AppiumDriverFactory.getInstanceOfAppiumDriverFactory();
         this.homeScreen = new HomeScreen(AppiumDriverFactory.getDriver());
     }
     @When("I open the Ndosi website")
     public void i_open_the_ndosi_website() {
+        AndroidDriver driver = AppiumDriverFactory.getDriver();
+        driver.get("https://www.ndosiautomation.co.za/");
+    }
+    @And("I should see the heading Learn Automation the Right Way displayed")
+    public void i_should_see_the_heading_learn_automation_the_right_way_displayed() {
+        homeScreen.verifyHeadingLearnAutomationDisplayed();
 
     }
-    @And("I should see the the heading Learn Automation the Right Way desplayed")
-    public void i_should_see_the_the_heading_learn_automation_the_right_way_desplayed() {
-
-    }
-    @And("I click on the baggur menu")
-    public void i_click_on_the_baggur_menu() {
-
+    @And("I click on the OpenMenu")
+    public void i_click_on_the_OpenMenu() {
+        homeScreen.clickOnOpenMenu();
     }
     @And("I click learning material tab")
     public void i_click_learning_material_tab() {
+        homeScreen.clickOnLearningMaterialTab();
+        this.learningMaterialsScreen = new LearningMaterialsScreen(AppiumDriverFactory.getDriver());
 
     }
-    @And("I should see the heading Login to Access Learning Materials desplayed")
-    public void i_should_see_the_heading_login_to_access_learning_materials_desplayed() {
+    @And("I should see the heading Login to Access Learning Materials displayed")
+    public void i_should_see_the_heading_login_to_access_learning_materials_displayed() {
+        learningMaterialsScreen.verifyLoginToAccessLearningMaterialsHeadingDisplayed();
 
     }
-    @And("I put my login username admin")
-    public void i_put_my_login_username_admin() {
-
+    @And("I login using admin username {string}")
+    public void i_login_username_admin(String arg0) {
+        learningMaterialsScreen.clickOnUsernameInputField();
+//        learningMaterialsScreen.clickOnPasswordInputField();
+        learningMaterialsScreen.enterUsername(arg0);
     }
-    @And("I put my login password admin")
-    public void i_put_my_login_password_admin() {
 
+    @And("I put admin login password {string}")
+    public void iPutMyLoginPassword(String arg0) {
+        learningMaterialsScreen.enterPassword(arg0);
     }
     @And("I click on the login button")
     public void i_click_on_the_login_button() {
-
+        learningMaterialsScreen.clickLoginButton();
+        this.landingScreen = new LandingScreen(AppiumDriverFactory.getDriver());
     }
-    @Then("I should see the heading Practice Assessments desplayed")
-    public void i_should_see_the_heading_practice_assessments_desplayed() {
-
+    @Then("I should see the heading Practice Assessments displayed")
+    public void i_should_see_the_heading_practice_assessments_displayed() {
+        landingScreen.verifyPracticalAssignmentHeading();
     }
-
-
 }
