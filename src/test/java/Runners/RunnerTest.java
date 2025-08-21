@@ -12,5 +12,5 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = true,
         tags = "@NdosiAutomationLogin"
 )
-public class CalculatorRunnerTest extends AbstractTestNGCucumberTests {
+public class RunnerTest extends AbstractTestNGCucumberTests {
 }
