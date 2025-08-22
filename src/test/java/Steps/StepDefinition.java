@@ -1,14 +1,10 @@
 package Steps;
 
-import Screens.HomeScreen;
-import Screens.LandingScreen;
-import Screens.LearningMaterialsScreen;
-import Utils.AppiumDriverFactory;
-import Utils.DatabaseConnection;
+import Screens.*;
+import Utils.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
-
 import java.net.MalformedURLException;
 
 public class StepDefinition {
@@ -31,7 +27,6 @@ public class StepDefinition {
     @And("I should see the heading Learn Automation the Right Way displayed")
     public void i_should_see_the_heading_learn_automation_the_right_way_displayed() {
         homeScreen.verifyHeadingLearnAutomationDisplayed();
-
     }
 
     @And("I click on the OpenMenu")
