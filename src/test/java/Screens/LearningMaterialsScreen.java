@@ -58,6 +58,7 @@ public class LearningMaterialsScreen {
                 .until(ExpectedConditions.elementToBeClickable(passwordInputField));
         passwordInputField.click();
         passwordInputField.sendKeys(arg0);
+        loginToAccessLearningMaterialsHeading.click();
     }
 
     public void clickLoginButton() {
