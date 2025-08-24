@@ -11,7 +11,7 @@ public class Hooks {
     protected static AndroidDriver driver;
 
     public Hooks() {
-        this.driver = AppiumDriverFactory.getDriver();
+        driver = AppiumDriverFactory.getDriver();
     }
 
     @AfterStep
