@@ -1,4 +1,5 @@
-Feature:
+@NkosiTest
+Feature: Ndosi website
 
   Scenario Outline: Login to Ndosi website
     Given I an android device open with chrome browser
