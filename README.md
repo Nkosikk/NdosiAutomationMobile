@@ -2,6 +2,8 @@
 
 A Java-based mobile automation framework using Appium, Selenium, Cucumber, and TestNG. This project is structured for easy test development and reporting for Android applications.
 
+---
+
 ## Project Structure
 
 ```
@@ -13,28 +15,35 @@ src/
   test/
     java/
       Runners/
-        CalculatorRunner.java
+        RunnerTest.java
       Screens/
-        testScreen.java
+        HomeScreen.java
+        LearningMaterialsScreen.java
+        LandingScreen.java
       Steps/
         Hooks.java
         StepDefination.java
       Utils/
         AppiumDriverFactory.java
+        DatabaseConnection.java
     resources/
       extent.properties
       Features/
         test.feature
 ```
 
+---
+
 ## Key Components
 
 - **AppiumDriverFactory.java**: Sets up and manages the Appium driver instance.
-- **CalculatorRunner.java**: TestNG runner for executing Cucumber feature files.
+- **RunnerTest.java**: TestNG runner for executing Cucumber feature files, cucumber-reports and extentreports.
 - **Hooks.java**: Cucumber hooks for actions like taking screenshots on failure.
-- **StepDefination.java**: Step definitions for Cucumber scenarios.
+- **StepDefinition.java**: Step definitions for Cucumber scenarios.
 - **test.feature**: Sample feature file for BDD scenarios.
 - **extent.properties**: Configuration for ExtentReports integration.
+
+---
 
 ## Getting Started
 
@@ -43,6 +52,8 @@ src/
 - Maven
 - Android SDK & emulator/device
 - Appium server running (default: http://127.0.0.1:4723/)
+
+---
 
 ### Setup
 1. Clone the repository.
@@ -53,15 +64,21 @@ src/
 3. Start the Appium server.
 4. Update the app path in `AppiumDriverFactory.java` if needed.
 
+---
+
 ### Running Tests
 Run all tests with:
 ```sh
 mvn test
 ```
 
+---
+
 ### Reports
 - HTML and JSON reports: `target/cucumber-reports.html`, `target/cucumber.json`
 - ExtentReports: Configured via `extent.properties`
+
+---
 
 ## Dependencies
 - Appium Java Client
@@ -69,6 +86,8 @@ mvn test
 - Cucumber (Java, TestNG)
 - TestNG
 - ExtentReports Adapter
+
+---
 
 ## Notes
 - Feature files are located in `src/test/resources/Features/`.

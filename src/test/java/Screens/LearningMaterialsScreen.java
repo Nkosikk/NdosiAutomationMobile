@@ -60,7 +60,6 @@ public class LearningMaterialsScreen {
         passwordInputField.sendKeys(arg0);
         loginToAccessLearningMaterialsHeading.click();
     }
-
     public void clickLoginButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(loginButton));
