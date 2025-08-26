@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LandingScreen {
     AndroidDriver driver;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"AthiPractice Assessments\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Practice Assessments\"]")
     WebElement practiceAssessmentsHeading;
 
     public LandingScreen(AndroidDriver driver) {
