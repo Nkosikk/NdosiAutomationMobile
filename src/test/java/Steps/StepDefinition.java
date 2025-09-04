@@ -21,7 +21,7 @@ public class StepDefinition {
 
     @Given("I an android device open with chrome browser")
     public void iAnAndroidDeviceOpenWithChromeBrowser() throws MalformedURLException {
-        AppiumDriverFactory.getInstanceOfAppiumDriverFactory(); // true for iOS
+        AppiumDriverFactory.getInstanceOfAppiumDriverFactory();
         this.homeScreen = new HomeScreen(AppiumDriverFactory.getDriver());
         this.learningMaterialsScreen = new LearningMaterialsScreen(AppiumDriverFactory.getDriver());
         this.landingScreen = new LandingScreen(AppiumDriverFactory.getDriver());
@@ -69,9 +69,9 @@ public class StepDefinition {
     public void i_should_see_the_heading_practice_assessments_displayed() {
         landingScreen.verifyHeadingPracticeAssessmentsDisplayed();
     }
-//    @AfterStep
-//    public void afterStep() {
-//        driver.quit();
-//    }
+    @AfterStep
+    public void afterStep() {
+        driver.quit();
+    }
 
 }
